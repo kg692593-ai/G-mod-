@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>VIP Store</title>
     
-    <!-- Telegram aur Adsgram ki Scripts (Zaroori) -->
+    <!-- Telegram aur Adsgram Scripts -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="https://adsgram.ai/js/adsgram.js"></script>
 
     <style>
-        /* --- DESIGN --- */
         body {
             background-color: #000000;
             color: #ffffff;
@@ -84,32 +83,31 @@
 </head>
 <body>
 
-    <!-- Heading Safe rakhi hai -->
     <h1>🔥 VIP Store 🔥</h1>
 
     <div class="container">
         
-        <!-- CARD 1: Safe Name -->
+        <!-- CARD 1 -->
         <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/5906/5906180.png" alt="Icon">
             <div class="info">
                 <h3>VIP Mod (Global)</h3>
                 <p>Latest Version | Anti-Ban</p>
             </div>
-            <!-- Click karne par Ad aayega, fir Channel link khulega -->
+            <!-- Button: Change Link below if needed -->
             <button class="btn" onclick="showAd('https://t.me/India013')">
                 GET
             </button>
         </div>
 
-        <!-- CARD 2: Safe Name -->
+        <!-- CARD 2 -->
         <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/8832/8832108.png" alt="Icon">
             <div class="info">
                 <h3>Premium Tool</h3>
                 <p>iPad View + 90 FPS</p>
             </div>
-            <!-- Click karne par Ad aayega, fir Channel link khulega -->
+            <!-- Button: Change Link below if needed -->
             <button class="btn" onclick="showAd('https://t.me/India013')">
                 GET
             </button>
@@ -118,28 +116,24 @@
     </div>
 
     <script>
-        // --- LOGIC (JAVASCRIPT) ---
-
-        // 1. Telegram App ko full screen karo
+        // Telegram Setup
         const tg = window.Telegram.WebApp;
         tg.ready();
-        tg.expand();
+        tg.expand(); // Full Screen
 
-        // 2. ADSGRAM SETUP (Tumhara Code ID: 20380)
+        // ADSGRAM SETUP (Block ID: 20380)
         const AdController = window.Adsgram.init({ blockId: "20380" });
 
-        // 3. Ad Dikhane wala function
         function showAd(channelLink) {
-            
-            // Ad show karne ki request
+            // Ad Show Karna
             AdController.show().then((result) => {
-                // Success: Ad dekha -> Channel par bhejo
-                window.location.href = channelLink;
+                // User ne Ad dekha -> Telegram Channel open karo
+                tg.openTelegramLink(channelLink);
                 
             }).catch((result) => {
-                // Error: Ad fail hua -> Fir bhi Channel par bhejo (User loss nahi hona chahiye)
-                console.error("Ad Error:", result);
-                window.location.href = channelLink;
+                // Agar Ad error aya ya skip hua -> Tab bhi Channel open karo
+                console.log("Ad skipped/error", result);
+                tg.openTelegramLink(channelLink);
             });
         }
     </script>
