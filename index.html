@@ -3,138 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VIP Store</title>
-    
-    <!-- Telegram aur Adsgram Scripts -->
+    <title>VIP Store Test</title>
+    <!-- Sirf Telegram Script (No Adsgram for testing) -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://adsgram.ai/js/adsgram.js"></script>
 
     <style>
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 16px;
-            user-select: none;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #3390ec;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .card {
-            background: #1c1c1e;
-            border-radius: 14px;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border: 1px solid #2f2f2f;
-        }
-
-        .card img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            object-fit: cover;
-        }
-
-        .info {
-            flex: 1;
-        }
-
-        .info h3 {
-            margin: 0;
-            font-size: 17px;
-            font-weight: 600;
-        }
-
-        .info p {
-            margin: 4px 0 0;
-            font-size: 13px;
-            color: #aaaaaa;
-        }
-
+        body { background-color: #000; color: white; font-family: sans-serif; padding: 20px; text-align: center; }
         .btn {
-            background-color: #3390ec;
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        
-        .btn:active {
-            opacity: 0.7;
+            background-color: #3390ec; color: white; border: none; padding: 15px 30px;
+            border-radius: 10px; font-size: 18px; font-weight: bold; margin-top: 50px; cursor: pointer; width: 100%;
         }
     </style>
 </head>
 <body>
 
-    <h1>🔥 VIP Store 🔥</h1>
+    <h1>Testing Mode</h1>
+    <p>Check if link opens without Ad</p>
 
-    <div class="container">
-        
-        <!-- CARD 1 -->
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/5906/5906180.png" alt="Icon">
-            <div class="info">
-                <h3>VIP Mod (Global)</h3>
-                <p>Latest Version | Anti-Ban</p>
-            </div>
-            <!-- Button: Change Link below if needed -->
-            <button class="btn" onclick="showAd('https://t.me/India013')">
-                GET
-            </button>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/8832/8832108.png" alt="Icon">
-            <div class="info">
-                <h3>Premium Tool</h3>
-                <p>iPad View + 90 FPS</p>
-            </div>
-            <!-- Button: Change Link below if needed -->
-            <button class="btn" onclick="showAd('https://t.me/India013')">
-                GET
-            </button>
-        </div>
-        
-    </div>
+    <!-- Simple Button -->
+    <button class="btn" onclick="openLink()">
+        OPEN CHANNEL
+    </button>
 
     <script>
-        // Telegram Setup
         const tg = window.Telegram.WebApp;
-        tg.ready();
-        tg.expand(); // Full Screen
+        tg.expand();
 
-        // ADSGRAM SETUP (Block ID: 20380)
-        const AdController = window.Adsgram.init({ blockId: "20380" });
+        function openLink() {
+            // 1. Screen par Message aayega (Confirm karne ke liye ki button chala)
+            alert("Button Clicked! Opening Telegram...");
 
-        function showAd(channelLink) {
-            // Ad Show Karna
-            AdController.show().then((result) => {
-                // User ne Ad dekha -> Telegram Channel open karo
-                tg.openTelegramLink(channelLink);
-                
-            }).catch((result) => {
-                // Agar Ad error aya ya skip hua -> Tab bhi Channel open karo
-                console.log("Ad skipped/error", result);
-                tg.openTelegramLink(channelLink);
-            });
+            // 2. Channel Open Hoga
+            tg.openTelegramLink("https://t.me/India013");
         }
     </script>
 </body>
