@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>G Mod Store</title>
+    
+    <!-- Telegram aur Adsgram ki Scripts -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://adsgram.ai/js/adsgram.js"></script>
+
+    <style>
+        /* --- DESIGN (CSS) --- */
+        body {
+            background-color: #000000; /* Black background */
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 16px;
+            user-select: none; /* Text copy rokne ke liye */
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #3390ec; /* Telegram Blue */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card {
+            background: #1c1c1e;
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #2f2f2f;
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 600;
+        }
+
+        .info p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #aaaaaa;
+        }
+
+        .btn {
+            background-color: #3390ec;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn:active {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔥 G Mod Store 🔥</h1>
+
+    <div class="container">
+        
+        <!-- CARD 1: BGMI Mod -->
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2991/2991560.png" alt="Icon">
+            <div class="info">
+                <h3>BGMI No Recoil</h3>
+                <p>Ver 3.5 | Safe</p>
+            </div>
+            <!-- Niche Link badal lena (Apna Download link dalo) -->
+            <button class="btn" onclick="showAd('https://t.me/vkmovie013_bot')">
+                GET
+            </button>
+        </div>
+
+        <!-- CARD 2: GFX Tool -->
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/9958/9958718.png" alt="Icon">
+            <div class="info">
+                <h3>GFX Tool Pro</h3>
+                <p>90 FPS + iPad View</p>
+            </div>
+            <!-- Yahan Google drive ya Terabox link daal sakte ho -->
+            <button class="btn" onclick="showAd('https://google.com')">
+                GET
+            </button>
+        </div>
+        
+    </div>
+
+    <script>
+        // --- LOGIC (JAVASCRIPT) ---
+
+        // 1. Telegram App ko expand karo
+        window.Telegram.WebApp.expand();
+
+        // 2. ADSGRAM SETUP (Aapki ID yahan lagi hai)
+        const AdController = window.Adsgram.init({ blockId: "20380" });
+
+        // 3. Ad Dikhane wala function
+        function showAd(downloadLink) {
+            
+            // Ad show karne ki request
+            AdController.show().then((result) => {
+                // Case A: User ne Ad dekha (Success)
+                // Aap chaho to alert hata sakte ho
+                // alert("Download Starting..."); 
+                window.location.href = downloadLink;
+                
+            }).catch((result) => {
+                // Case B: Agar Ad fail hua ya Error aaya
+                // Tab bhi user ko download de do (taaki wo gussa na ho)
+                console.error("Ad Error:", result);
+                window.location.href = downloadLink;
+            });
+        }
+    </script>
+</body>
+</html>
